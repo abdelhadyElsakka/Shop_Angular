@@ -1,0 +1,11 @@
+
+<a [routerLink]="['/productDetails',productData.id]">
+  <div class="card" style="width: 18rem;" >
+    <img [src]="productData.image" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{productData.title}}</h5>
+        <p class="card-text">{{ productData.price | currency}}</p>
+        <a class="btn btn-primary" >Add To Cart</a>
+      </div>
+    </div>
+</a>
