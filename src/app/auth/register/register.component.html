@@ -1,0 +1,88 @@
+
+    <div class="container h-100 w-50 m-auto mt-5">
+        <form class="mx-1 mx-md-4" [formGroup]="signUp" (ngSubmit)="submitRegister()">
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example1c">Your Name</label>
+                        <input type="text" id="name" class="form-control"
+                        formControlName="name"
+                        name="name"
+                        />
+                        <div class="text-danger" *ngIf="showError || !signUpValidation['name'].valid  && signUpValidation['name'].touched" >
+                          <p *ngIf="signUpValidation['name'].errors?.['required']">Name is required</p>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example3c">Your Email</label>
+                        <input type="email" id="email" class="form-control" 
+                        formControlName="email"
+                        name="email"
+                        />
+                        <div class="text-danger" *ngIf="showError || !signUpValidation['email'].valid  && signUpValidation['email'].touched" >
+                          <p *ngIf="signUpValidation['email'].errors?.['required']">Email is required</p>
+                          <p *ngIf="signUpValidation['email'].errors?.['pattern']">Email is not valid</p>
+                        </div>
+                        
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="form3Example3c">Username</label>
+                          <input type="email" id="usrename" class="form-control" 
+                          formControlName="userName"
+                          name="userName"
+                          />
+                          <div class="text-danger" *ngIf="showError || !signUpValidation['userName'].valid  && signUpValidation['userName'].touched" >
+                            <p *ngIf="signUpValidation['userName'].errors?.['required']">Username is required</p>
+                            <p *ngIf="signUpValidation['userName'].errors?.['pattern']">No spaces allowed in username</p>
+                          </div>
+                        </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example4c">Password</label>
+                        <input type="password" id="password" class="form-control" 
+                        formControlName="password"
+                        name="password"
+                        />
+                        <div class="text-danger" *ngIf="showError || !signUpValidation['password'].valid  && signUpValidation['password'].touched" >
+                          <p *ngIf="signUpValidation['password'].errors?.['required']">Password is required</p>
+                          <p *ngIf="signUpValidation['password'].errors?.['minLength']">Password must be at least 8 characters</p>
+                          <p *ngIf="signUpValidation['password'].errors?.['pattern']">Password is weak</p>
+                      </div>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example4cd">Confirm password</label>
+                        <input type="password" id="confirmPassword" class="form-control" 
+                        formControlName="confirmPassword"
+                        name="confirmPassword"
+                        />
+                        <div class="text-danger" *ngIf="showError || !signUpValidation['confirmPassword'].valid  && signUpValidation['confirmPassword'].touched" >
+                          <p *ngIf="signUpValidation['confirmPassword'].errors?.['required']">Confirm password is required</p>
+                        </div>
+                      </div>
+                    </div>
+  
+  
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button type="submit" [disabled]="!signUp.valid" class="btn btn-primary btn-lg">Register</button>
+                    </div>
+  
+        </form>
+  
+    </div>
+

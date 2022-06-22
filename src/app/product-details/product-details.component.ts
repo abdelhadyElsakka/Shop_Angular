@@ -33,9 +33,7 @@ export class ProductDetailsComponent implements OnInit {
 
     console.log(this.item);
 
-    // transform(this.price: number): string {
-    //   return (size / (1024 * 1024)).toFixed(2) + 'MB';
-    // }
+
 
   }
 

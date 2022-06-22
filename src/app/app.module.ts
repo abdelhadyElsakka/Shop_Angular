@@ -8,6 +8,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CurrencyPipe } from './currency.pipe';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CurrencyPipe } from './currency.pipe';
     ProductListComponent,
     ProductCardComponent,
     ProductDetailsComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
