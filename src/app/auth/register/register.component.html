@@ -62,8 +62,8 @@
           name="confirmPassword" />
         <div class="text-danger"
           *ngIf="showError || !signUpValidation['confirmPassword'].valid  && signUpValidation['confirmPassword'].touched">
-          <p *ngIf="signUp.errors?.['required']">Confirm password is required</p>
-          <p *ngIf="signUp.errors?.['mustMatch']">Password and confirm not match</p>
+          <p *ngIf="signUpValidation['confirmPassword'].errors?.['required']">Confirm password is required</p>
+          <p *ngIf="signUpValidation['confirmPassword'].errors?.['mustMatch']">Password and confirm not match</p>
         </div>
       </div>
     </div>
