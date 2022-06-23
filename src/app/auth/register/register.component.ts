@@ -9,21 +9,17 @@ import { CustomValidators } from '../confirmed.validator';
 })
 export class RegisterComponent implements OnInit {
 
-  passwordPattern:RegExp = new RegExp("^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\\$%\\^&\\*])(?=.{8,})");
-  emailPattern:RegExp = new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$");
-  userNamePattern:RegExp = new RegExp("^[^\\s]+(\\s+[^\\s]+)*$");
-
   signUp:FormGroup = this.fb.group ({
     name: ["",[Validators.required]],
-    email: ["",[Validators.required,Validators.email,Validators.pattern(this.emailPattern)]],
-    userName: ["",[Validators.required,Validators.pattern(this.userNamePattern)]],
-    password: new FormControl('', [
+    email: ["",[Validators.required,Validators.email,Validators.pattern(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]],
+    userName: ["",[Validators.required,Validators.pattern(/^[^\s]+$/)]],
+    password: ['', [
       Validators.required,
       Validators.minLength(8),
-      Validators.pattern(this.passwordPattern),
-    ]),
+      Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)
+    ]],
+    confirmPassword: new FormControl('', [Validators.required]),
     addresses: this.fb.array([]),
-    confirmPassword: new FormControl('', [Validators.required])
   },
 
   CustomValidators.mustMatch('password', 'confirmPassword')
