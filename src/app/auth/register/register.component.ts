@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
       Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)
     ]],
     confirmPassword: new FormControl('', [Validators.required]),
-    addresses: this.fb.array([]),
+    addresses: this.fb.array([])
   },
 
   CustomValidators.mustMatch('password', 'confirmPassword')

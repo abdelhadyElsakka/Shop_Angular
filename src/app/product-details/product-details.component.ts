@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartCountService } from '../cart-count.service';
+import { ProductdetailsinfoService } from '../productdetailsinfo.service';
 import { Products } from '../products';
 import { ProductsService } from '../products.service';
 
@@ -9,15 +11,24 @@ import { ProductsService } from '../products.service';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
+
+
 export class ProductDetailsComponent implements OnInit {
 
   @Input('productData') productData:any;
 
-  
+  sub:any;
   id:any;
   item:any;
-  productsArr:Products[]=[]
-  constructor(private _ProductsService:ProductsService,private route: ActivatedRoute) {}
+  currentCounter:any;
+  constructor(private route: ActivatedRoute, private _productDetailsInf:ProductdetailsinfoService,private _cartCOuntService:CartCountService) {
+    this._cartCOuntService.getCounter().subscribe((res:any)=>{
+      this.currentCounter=res
+    })
+    
+  }
+
+  
 
   ngOnInit(): void {
 
@@ -25,16 +36,22 @@ export class ProductDetailsComponent implements OnInit {
       this.id = parseInt(params["id"]);
       
     });
-    this.productsArr=this._ProductsService.productList;
+    
+    this.sub=this._productDetailsInf.getProductDetails(this.id).subscribe(
+      (res:any)=>{
+        console.log(res);
+        this.item=res
+      },
+      (err:any)=>{
+        console.log(err);
+      }
+    )
 
-    this.item=this.productsArr.filter((item)=>{
-      return item.id===this.id
-    })
 
-    console.log(this.item);
+  }
 
-
-
+  ngOnDestory(){
+    this.sub.unsubscribe();
   }
 
 }

@@ -9,6 +9,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CurrencyPipe } from './currency.pipe';
 import { ErrorComponent } from './error/error.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { ErrorComponent } from './error/error.component';
     ProductCardComponent,
     ProductDetailsComponent,
     CurrencyPipe,
-    ErrorComponent
+    ErrorComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

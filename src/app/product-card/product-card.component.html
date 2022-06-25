@@ -1,11 +1,13 @@
 
-<a [routerLink]="['/productDetails',productData.id]">
-  <div class="card" style="width: 18rem;" >
-    <img [src]="productData.image" class="card-img-top" alt="...">
-      <div class="card-body">
+
+  <div class="card my-5" style="width: 18rem;">
+    <a [routerLink]="['/productDetails',productData.id]">
+    <img [src]="productData.image" class="card-img-top" alt="..." style="height: 18rem;">
+    </a>
+      <div class="card-body" style="height: 12rem;">
         <h5 class="card-title">{{productData.title}}</h5>
         <p class="card-text">{{ productData.price | currency}}</p>
-        <a class="btn btn-primary" >Add To Cart</a>
       </div>
+   
+      <a class="btn btn-primary" (click)="addCart(productData.id)">Add To Cart</a>
     </div>
-</a>
