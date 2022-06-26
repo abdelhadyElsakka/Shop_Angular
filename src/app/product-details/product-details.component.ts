@@ -14,8 +14,10 @@ import { ProductsService } from '../products.service';
 
 
 export class ProductDetailsComponent implements OnInit {
-
-  @Input('productData') productData:any;
+  
+  productData:any;
+  
+  @Input('productData') 
 
   sub:any;
   id:any;
@@ -48,6 +50,11 @@ export class ProductDetailsComponent implements OnInit {
     )
 
 
+  }
+
+  addCart(id:number){
+    // this.productID.emit(id)
+    this._cartCOuntService.setNewCounter(++this.currentCounter)
   }
 
   ngOnDestory(){
