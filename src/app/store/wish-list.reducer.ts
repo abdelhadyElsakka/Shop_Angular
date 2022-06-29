@@ -9,21 +9,7 @@ export const initialState: Wish[] = [];
 
 export const wishListReducer = createReducer(
   initialState,
-  on(addToWishList, (state, { id,  image, title }) => {
-    let arr = [...state];
-
-    let product = arr.find((e) => {
-      return e.id == id;
-    });
-
-    if (product) {
-      return state;
-    } else {
-      state = [...state, { id, image, title }];
-      return state;
-    }
-  }),
-  
+  on(addToWishList, (state , { id, image, title }) => state =  [...state, { id, image, title }]),
   on(removeWish, (state, { index }) => {
     let arr = [...state];
 
