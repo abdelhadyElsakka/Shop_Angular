@@ -11,6 +11,8 @@ import { CurrencyPipe } from './currency.pipe';
 import { ErrorComponent } from './error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
+import { WishListComponent } from './wish-list/wish-list.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { CartComponent } from './cart/cart.component';
     ProductDetailsComponent,
     CurrencyPipe,
     ErrorComponent,
-    CartComponent
+    CartComponent,
+    WishListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

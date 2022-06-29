@@ -1,0 +1,9 @@
+<div *ngFor="let wish of wishList; let i = index">
+<div class="card my-5" style="width: 18rem; height: 10rem;">
+    <img [src]="wish.image" class="card-img-top" alt="..." style="height: 10rem;">
+      <div class="card-body" style="height: 12rem;">
+        <h5 class="card-title">{{ wish.title }}</h5>
+        <a class="btn btn-primary" (click)="removeFromWishList(i)"><i class="fas fa-trash"></i></a>
+      </div>   
+    </div>
+  </div>

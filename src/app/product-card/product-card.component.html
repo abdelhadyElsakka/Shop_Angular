@@ -1,6 +1,6 @@
 
 
-  <div class="card my-5" style="width: 18rem;">
+  <div class="card my-5" style="width: 14rem;">
     <a [routerLink]="['/productDetails',productData.id]">
     <img [src]="productData.image" class="card-img-top" alt="..." style="height: 18rem;">
     </a>
@@ -8,6 +8,8 @@
         <h5 class="card-title">{{productData.title}}</h5>
         <p class="card-text">{{ productData.price | currency}}</p>
       </div>
-   
+      <a  (click)="addWish(productData.id, productData.image, productData.title) " class="btn btn-primary mb-2">
+          Add to Wish List
+      </a>
       <a class="btn btn-primary" (click)="addCart(productData.id)">Add To Cart</a>
     </div>

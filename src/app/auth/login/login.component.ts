@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   signIn(data:any){
     if(data.valid){
-      console.log(data.value);
+      localStorage['userData'] = data.controls.email.value;
     }else{
       this.showError=true;
     }

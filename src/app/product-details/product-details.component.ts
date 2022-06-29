@@ -14,16 +14,16 @@ import { ProductsService } from '../products.service';
 
 
 export class ProductDetailsComponent implements OnInit {
+
+  @Input('productData') 
   
   productData:any;
-  
-  @Input('productData') 
 
   sub:any;
   id:any;
   item:any;
   currentCounter:any;
-  constructor(private route: ActivatedRoute, private _productDetailsInf:ProductdetailsinfoService,private _cartCOuntService:CartCountService) {
+  constructor(private route: ActivatedRoute, private _productDetailsInfoService:ProductdetailsinfoService,private _cartCOuntService:CartCountService) {
     this._cartCOuntService.getCounter().subscribe((res:any)=>{
       this.currentCounter=res
     })
@@ -39,7 +39,7 @@ export class ProductDetailsComponent implements OnInit {
       
     });
     
-    this.sub=this._productDetailsInf.getProductDetails(this.id).subscribe(
+    this.sub=this._productDetailsInfoService.getProductDetails(this.id).subscribe(
       (res:any)=>{
         console.log(res);
         this.item=res
@@ -53,8 +53,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addCart(id:number){
-    // this.productID.emit(id)
-    this._cartCOuntService.setNewCounter(++this.currentCounter)
+    this._cartCOuntService.setNewCounter(++this.currentCounter),
+    this._cartCOuntService.addCart(id)
   }
 
   ngOnDestory(){

@@ -1,6 +1,9 @@
-<div class="container">
-    <div class="row justify-content-between">
+<div class="container mt-5 row">
+    <div class="row justify-content-between col-md-10">
         <app-product-card class="col-md-3" *ngFor="let product of productList" [productData]="product"></app-product-card>
+    </div>
+    <div class="col-md-2">
+        <app-wish-list></app-wish-list>
     </div>
 </div>
 

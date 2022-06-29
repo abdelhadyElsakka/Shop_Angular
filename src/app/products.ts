@@ -7,3 +7,9 @@ export interface Products {
     image:string,
     rating:{rate:number, count:number}
 }
+
+export interface Wish {
+    id: number;
+    title: string;
+    image: string;
+}
